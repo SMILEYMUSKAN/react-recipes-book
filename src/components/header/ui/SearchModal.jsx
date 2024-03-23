@@ -23,7 +23,7 @@ const SearchComponent = () => {
   };
 
   React.useEffect(() => {
-    if (searchQuery != "") {
+    if (searchQuery !== "") {
       setLoading(true);
       const timeOutId = setTimeout(() => {
         fetch(
@@ -40,7 +40,7 @@ const SearchComponent = () => {
       console.log(recipes);
       return () => clearTimeout(timeOutId);
     }
-  }, [searchQuery]);
+  }, [searchQuery, recipes]);
 
   const handleRecipeClick = () => {
     setIsModalOpen(false);
@@ -51,12 +51,13 @@ const SearchComponent = () => {
     <>
       <Button
         onClick={showModal}
-        className="p-0 border-none text-xl font-medium">
+        className="p-0 border-none flex gap-1 items-center justify-center text-base font-medium">
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
         />
         <i className="bx bx-search-alt"></i>
+        <span> Recipes</span>
       </Button>
       <Modal
         title="Browse Recipes"
@@ -80,7 +81,7 @@ const SearchComponent = () => {
             <>
               {recipes?.meals?.map((recipe, idx) => (
                 <a
-                  href={`/categories/${recipe?.strCategory}/${recipe?.strMeal}`}
+                  href={`/recipe/${recipe?.strMeal}`}
                   onClick={handleRecipeClick}>
                   <h1
                     className="text-lg border-b p-3 cursor-pointer hover:bg-gray-100 hover:border-blue-500"

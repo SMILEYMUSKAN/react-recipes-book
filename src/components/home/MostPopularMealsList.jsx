@@ -8,17 +8,23 @@ const MostPopularMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       try {
-        const mealPromises = [];
-        for (let i = 0; i < 4; i++) {
-          mealPromises.push(
-            fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+        const mealIds = new Set(); // Set to store unique meal IDs
+        const meals = [];
+
+        while (meals.length < 4) {
+          const response = await fetch(
+            "https://www.themealdb.com/api/json/v1/1/random.php"
           );
+          const data = await response.json();
+          const meal = data.meals[0];
+
+          // Check if meal ID is unique
+          if (!mealIds.has(meal.idMeal)) {
+            mealIds.add(meal.idMeal);
+            meals.push(meal);
+          }
         }
-        const responses = await Promise.all(mealPromises);
-        const mealDataArray = await Promise.all(
-          responses.map((response) => response.json())
-        );
-        const meals = mealDataArray.map((data) => data.meals[0]);
+
         setMealsList(meals);
         setLoading(false);
       } catch (error) {

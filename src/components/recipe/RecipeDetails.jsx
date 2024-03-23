@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import RecipeDetailsCard from "./RecipeDetailsCard";
 import { Spin } from "antd";
+import RecipeCard from "./RecipesCard";
 
 const RecipeDetails = () => {
   const { recipeName } = useParams();
@@ -15,8 +16,7 @@ const RecipeDetails = () => {
         setLoading(false);
       })
       .catch(console.log);
-  }, []);
-  console.log(recipeDetails, "LOG");
+  }, [recipeName]);
 
   if (recipeDetails?.meals === null) {
     return (
@@ -29,6 +29,7 @@ const RecipeDetails = () => {
       </div>
     );
   }
+  console.log(recipeDetails, ":: CONSOLE ::");
   return (
     <div className="h-full w-full flex items-center justify-center recipe-details-ui">
       {loading ? (
@@ -42,10 +43,15 @@ const RecipeDetails = () => {
               <RecipeDetailsCard recipeDetails={recipeObj} key={idx} />
             ))
           ) : (
-            <div className="mt-52">
-              <h1 className="text-3xl">
-                Sorry this page is currently unavailable!
-              </h1>
+            <div className="grid grid-cols-3 justify-center items-center gap-4">
+              {recipeDetails?.meals?.map((recipeObj, idx) => (
+                <RecipeCard
+                  imgUrl={recipeObj?.strMealThumb}
+                  recipeName={recipeObj?.strMeal}
+                  category={recipeObj?.strCategory}
+                  key={idx}
+                />
+              ))}
             </div>
           )}
         </>
@@ -53,5 +59,4 @@ const RecipeDetails = () => {
     </div>
   );
 };
-
 export default RecipeDetails;

@@ -10,11 +10,7 @@ const AppRouter = () => {
       <Route exact path="/" component={HomePage} />
       <Route exact path="/categories" component={CategoriesList} />
       <Route exact path="/categories/:categoryName" component={RecipeList} />
-      <Route
-        exact
-        path="/categories/:categoryName/:recipeName"
-        component={RecipeDetails}
-      />
+      <Route path="/recipe/:recipeName" component={RecipeDetails} />
     </Switch>
   );
 };
