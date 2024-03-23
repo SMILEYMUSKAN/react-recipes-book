@@ -2,7 +2,7 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "../components/home/HomePage";
 import CategoriesList from "../components/categories/CategoriesList";
 import RecipeList from "../components/recipe/RecipeList";
-import RecipeDetails from "../components/recipe/RecipeDetails";
+import RecipeDetails from "../components/recipe/recipeDetails/RecipeDetails";
 
 const AppRouter = () => {
   return (

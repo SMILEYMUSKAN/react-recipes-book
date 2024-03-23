@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MealsCard from "./MealsCard";
 import { Spin } from "antd";
+
 const TrendingMeals = () => {
   const [mealsList, setMealsList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,4 +45,4 @@ const TrendingMeals = () => {
   );
 };
 
-export default TrendingMeals;
+export default React.memo(TrendingMeals);

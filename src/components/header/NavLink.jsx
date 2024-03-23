@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
 const NavLink = ({ children, urlPath }) => (
   <Link to={urlPath} className="hover:text-sky-500 hover:transition">
@@ -6,4 +7,4 @@ const NavLink = ({ children, urlPath }) => (
   </Link>
 );
 
-export default NavLink;
+export default React.memo(NavLink);

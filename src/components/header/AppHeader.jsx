@@ -1,4 +1,5 @@
 import HeaderLinks from "./HeaderLinks";
+import React from "react";
 
 const Header = () => {
   return (
@@ -6,10 +7,9 @@ const Header = () => {
       <h1 className="font-semibold text-slate-900 text-xl">
         Tasty Tales <span>(Browse Through Over 10,000 Tasty Recipes)</span>
       </h1>
-
       <HeaderLinks />
     </div>
   );
 };
 
-export default Header;
+export default React.memo(Header);

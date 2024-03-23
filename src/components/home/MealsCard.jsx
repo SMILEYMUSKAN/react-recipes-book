@@ -1,5 +1,6 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const MealsCard = ({ mealData }) => {
   return (
@@ -26,4 +27,4 @@ const MealsCard = ({ mealData }) => {
   );
 };
 
-export default MealsCard;
+export default React.memo(MealsCard);

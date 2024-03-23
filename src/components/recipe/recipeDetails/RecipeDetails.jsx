@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import RecipeDetailsCard from "./RecipeDetailsCard";
+
 import { Spin } from "antd";
-import RecipeCard from "./RecipesCard";
+import RecipeCard from "../RecipesCard";
+import RecipeDetailsCard from "./RecipeDetailsCard";
 
 const RecipeDetails = () => {
   const { recipeName } = useParams();
@@ -29,7 +30,6 @@ const RecipeDetails = () => {
       </div>
     );
   }
-  console.log(recipeDetails, ":: CONSOLE ::");
   return (
     <div className="h-full w-full flex items-center justify-center recipe-details-ui">
       {loading ? (
@@ -43,7 +43,7 @@ const RecipeDetails = () => {
               <RecipeDetailsCard recipeDetails={recipeObj} key={idx} />
             ))
           ) : (
-            <div className="grid grid-cols-3 justify-center items-center gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg-grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 justify-center items-center gap-4">
               {recipeDetails?.meals?.map((recipeObj, idx) => (
                 <RecipeCard
                   imgUrl={recipeObj?.strMealThumb}

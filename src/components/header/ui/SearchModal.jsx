@@ -37,7 +37,6 @@ const SearchComponent = () => {
           .catch(console.error)
           .finally(() => setLoading(false));
       }, 2000);
-      console.log(recipes);
       return () => clearTimeout(timeOutId);
     }
   }, [searchQuery, recipes]);

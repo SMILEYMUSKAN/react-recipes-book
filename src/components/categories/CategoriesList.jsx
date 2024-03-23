@@ -4,6 +4,7 @@ import { Spin } from "antd";
 const CategoriesList = () => {
   const [categoriesData, setCategories] = useState({});
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((res) => res.json())
@@ -12,6 +13,7 @@ const CategoriesList = () => {
         setLoading(false);
       });
   }, []);
+
   const { categories } = categoriesData;
 
   return (
@@ -21,7 +23,7 @@ const CategoriesList = () => {
           <Spin />
         </div>
       ) : (
-        <section className="h-full grid grid-cols-3  gap-4 ">
+        <section className="h-full grid sm:grid-cols-2 md:grid-cols-3 lg-grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 ">
           {categories?.map((categoryObj) => (
             <CategoriesCard
               imgUrl={categoryObj?.strCategoryThumb}

@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MealsCard from "./MealsCard";
 import { Spin } from "antd";
+
 const MostPopularMeals = () => {
   const [mealsList, setMealsList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,6 @@ const MostPopularMeals = () => {
 
     fetchMeals();
   }, []);
-  console.log(mealsList, "MEALS LIST");
   return (
     <>
       {loading ? (
@@ -52,4 +52,4 @@ const MostPopularMeals = () => {
   );
 };
 
-export default MostPopularMeals;
+export default React.memo(MostPopularMeals);

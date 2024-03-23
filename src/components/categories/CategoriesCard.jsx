@@ -1,10 +1,10 @@
+import React from "react";
+
 import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Typography,
-  Button,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
@@ -27,4 +27,4 @@ function CategoriesCard({ imgUrl, categoryName }) {
     </Link>
   );
 }
-export default CategoriesCard;
+export default React.memo(CategoriesCard);

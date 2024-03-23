@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Card,
   CardHeader,
@@ -21,4 +23,4 @@ function RecipeCard({ imgUrl, recipeName }) {
     </a>
   );
 }
-export default RecipeCard;
+export default React.memo(RecipeCard);

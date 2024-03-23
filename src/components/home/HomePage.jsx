@@ -28,6 +28,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-/*
-grid grid-rows-3 gap-4
-*/

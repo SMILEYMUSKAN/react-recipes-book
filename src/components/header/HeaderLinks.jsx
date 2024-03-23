@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import SearchComponent from "./ui/SearchModal";
 import NavLink from "./NavLink";
+import React from "react";
 
 const HeaderLinks = () => {
   return (
@@ -12,4 +12,4 @@ const HeaderLinks = () => {
   );
 };
 
-export default HeaderLinks;
+export default React.memo(HeaderLinks);
