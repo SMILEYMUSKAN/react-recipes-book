@@ -2,7 +2,7 @@ import React from "react";
 
 const RecipeYtVideo = ({ strYoutube }) => {
   const regExp =
-    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   const match = strYoutube.match(regExp);
   const ytVideoId = match && match[7].length === 11 ? match[7] : "";
 

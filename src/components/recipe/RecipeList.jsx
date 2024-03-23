@@ -17,7 +17,7 @@ const RecipeList = () => {
         setLoading(false);
       })
       .catch(console.log);
-  }, []);
+  }, [categoryName]);
 
   if (recipes?.meals === null) {
     return (

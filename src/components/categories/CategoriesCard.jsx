@@ -13,7 +13,7 @@ function CategoriesCard({ imgUrl, categoryName }) {
     <Link to={`/categories/${categoryName}`}>
       <Card className="mt-6 flex flex-col border justify-center  p-3 cursor-pointer rounded w-96 hover:shadow-xl  hover:opacity-80">
         <CardHeader color="blue-gray" className="relative h-56">
-          <img src={imgUrl} alt="card-image" />
+          <img src={imgUrl} alt="category-card-thumbnail" />
         </CardHeader>
         <CardBody>
           <Typography
